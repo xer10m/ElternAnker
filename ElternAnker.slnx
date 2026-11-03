@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/ElternAnker.AppHost/ElternAnker.AppHost.csproj" />
+    <Project Path="src/ElternAnker.ServiceDefaults/ElternAnker.ServiceDefaults.csproj" />
+    <Project Path="src/ElternAnker.Api/ElternAnker.Api.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/ElternAnker.Api.Tests/ElternAnker.Api.Tests.csproj" />
+  </Folder>
+</Solution>

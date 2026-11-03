@@ -1,0 +1,5 @@
+{
+  "appHost": {
+    "path": "src/ElternAnker.AppHost/ElternAnker.AppHost.csproj"
+  }
+}

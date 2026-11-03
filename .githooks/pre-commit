@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+echo "Running code format check before commit..."
+dotnet format ElternAnker.slnx --verify-no-changes
+
+if [ $? -ne 0 ]; then
+    echo "❌ dotnet format check failed! Run 'dotnet format ElternAnker.slnx' or 'make format' to fix."
+    exit 1
+fi
+
+echo "✅ Code format check passed."
+

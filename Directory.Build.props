@@ -1,0 +1,21 @@
+<Project>
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Deterministic>true</Deterministic>
+
+    <!-- Official Microsoft recommendation for code quality analysis -->
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+
+    <!-- Suppress common transitive warnings across Aspire dependencies -->
+    <!-- NU1902-NU1904: Transitive package audit vulnerabilities in Aspire/MessagePack preview packages -->
+    <!-- NU1510: Package pruning warnings -->
+    <!-- CA1515: Public types in app assembly (needed for integration test accessibility) -->
+    <!-- CA2007: Do not directly await a Task without ConfigureAwait (not applicable to Web/API apps) -->
+    <!-- CA1724: Conflict with external namespaces (e.g., standard Aspire Extensions class in ServiceDefaults) -->
+    <NoWarn>$(NoWarn);NU1902;NU1903;NU1904;NU1510;CA1515;CA2007;CA1724</NoWarn>
+  </PropertyGroup>
+</Project>
