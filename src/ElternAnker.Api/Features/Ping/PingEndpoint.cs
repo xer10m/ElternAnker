@@ -1,4 +1,4 @@
-using ElternAnker.Api.Infrastructure.Abstractions;
+using ElternAnker.Infrastructure.Abstractions;
 
 namespace ElternAnker.Api.Features.Ping;
 

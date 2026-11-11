@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ElternAnker.Infrastructure\ElternAnker.Infrastructure.csproj" />
     <ProjectReference Include="..\ElternAnker.ServiceDefaults\ElternAnker.ServiceDefaults.csproj" />
   </ItemGroup>
 

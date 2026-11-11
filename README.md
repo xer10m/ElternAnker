@@ -54,13 +54,19 @@ ElternAnker/
 ├── src/
 │   ├── ElternAnker.AppHost/          ← .NET Aspire Orchestrierung
 │   ├── ElternAnker.ServiceDefaults/  ← Shared Observability, OTLP, Health
+│   ├── ElternAnker.Infrastructure/   ← Domain-Modelle, AI-Abstraktionen & Stubs (VectorStore, StateMachine, Storage)
 │   └── ElternAnker.Api/              ← Minimal-API mit Vertical Slice Architecture
 │       ├── Features/
 │       │   ├── Health/               ← Feature: Detail-Healthcheck
-│       │   └── Ping/                 ← Feature: Referenz-Slice (Endpoint + Handler)
-│       └── Infrastructure/           ← Abstraktionen & DI-Extensions
+│       │   ├── Ping/                 ← Feature: Referenz-Slice (Endpoint + Handler)
+│       │   └── Sessions/             ← Feature: AI Parenting Reflection Coach ("Abendlicht")
+│       │       ├── StartSession/     ← POST /api/sessions/start
+│       │       ├── Chat/             ← POST /api/sessions/{id}/chat
+│       │       └── Feedback/         ← POST /api/sessions/{id}/feedback
+│       └── Infrastructure/           ← API-spezifische DI-Extensions
 ├── tests/
 │   └── ElternAnker.Api.Tests/        ← xUnit + Shouldly Integrationstests
+│       └── Features/                 ← Test-Slices spiegeln API-Features
 ├── docs/
 │   ├── adr/                          ← Architectural Decision Records
 │   └── CONTRIBUTING.md               ← Entwickler-Leitfaden

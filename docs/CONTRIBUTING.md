@@ -24,9 +24,10 @@ Willkommen im ElternAnker-Projekt! Dieser Leitfaden beschreibt die Standards und
    - Endpunkt mit `Map<Feature>Endpoints()`-Extension
    - Query/Command-Record (`sealed record`)
    - Response-Record (`sealed record`)
-   - Handler implementiert `ICommandHandler` oder `IQueryHandler`
+   - Handler implementiert `ICommandHandler` oder `IQueryHandler` (aus `ElternAnker.Infrastructure.Abstractions`)
 3. **DI-Registrierung**:
    - Handler in `src/ElternAnker.Api/Infrastructure/Extensions/ServiceCollectionExtensions.cs` registrieren
+   - Bei technischen Adaptern/Services: Registrierung in `src/ElternAnker.Infrastructure/Extensions/InfrastructureServiceCollectionExtensions.cs`
    - Endpunkt in `Program.cs` via `app.Map<Feature>Endpoints()` aufrufen
 4. **Integrationstest schreiben**:
    - `tests/ElternAnker.Api.Tests/Features/<Domain>/<FeatureName>Tests.cs`

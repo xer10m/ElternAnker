@@ -7,6 +7,19 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/Dotnet.gitignore
 
+# IDE & Editor files
+.vs/
+.idea/
+*.user
+*.userosscache
+*.sln.docstates
+*.suo
+
+# Operating System files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/

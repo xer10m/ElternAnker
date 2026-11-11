@@ -1,4 +1,4 @@
-namespace ElternAnker.Api.Infrastructure.Abstractions;
+namespace ElternAnker.Infrastructure.Abstractions;
 
 /// <summary>
 /// Lightweight handler contract without third-party dependencies (Vertical Slice Architecture).

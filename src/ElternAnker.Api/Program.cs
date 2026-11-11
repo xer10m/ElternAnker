@@ -1,5 +1,6 @@
 using ElternAnker.Api.Features.Health;
 using ElternAnker.Api.Features.Ping;
+using ElternAnker.Api.Features.Sessions;
 using ElternAnker.Api.Infrastructure.Extensions;
 using Scalar.AspNetCore;
 
@@ -27,6 +28,7 @@ if (app.Environment.IsDevelopment())
 // Feature Endpoints
 app.MapPingEndpoints();
 app.MapHealthEndpoints();
+app.MapSessionsEndpoints();
 
 await app.RunAsync();
 

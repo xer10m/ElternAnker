@@ -26,6 +26,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\ElternAnker.Api\ElternAnker.Api.csproj" />
+    <ProjectReference Include="..\..\src\ElternAnker.Infrastructure\ElternAnker.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

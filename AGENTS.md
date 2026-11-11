@@ -55,7 +55,7 @@ make format
 
 - **Vertical Slice**: Jedes Feature/Use-Case bekommt einen eigenen Ordner unter `src/ElternAnker.Api/Features/<Domain>/<UseCase>/`.
 - **Kein shared „Services/"- oder „Controllers/"-Ordner** auf Top-Level. Shared Code gehört nach `Infrastructure/`.
-- **Eigene Handler-Abstraktionen**: Verwende die schlanken Interfaces `ICommandHandler<TCommand, TResult>` und `IQueryHandler<TQuery, TResult>` aus `ElternAnker.Api.Infrastructure.Abstractions` anstelle schwerer externer Mediator-Bibliotheken.
+- **Eigene Handler-Abstraktionen**: Verwende die schlanken Interfaces `ICommandHandler<TCommand, TResult>` und `IQueryHandler<TQuery, TResult>` aus `ElternAnker.Infrastructure.Abstractions` anstelle schwerer externer Mediator-Bibliotheken.
 - **Endpoint-Registrierung via Extension-Method**: Jedes Feature exportiert eine `MapXyzEndpoints()`-Methode; `Program.cs` ruft diese auf.
 - **Neue Features**: Kopiere den `Ping`-Slice als Vorlage (`PingEndpoint.cs` enthält Route, Request/Query, Response und Handler).
 - **Tests spiegeln Feature-Struktur**: `tests/ElternAnker.Api.Tests/Features/<Domain>/` – Tests nutzen `Shouldly` als Assertion-Library (vollständig kommerziell nutzbar).
@@ -75,12 +75,25 @@ ElternAnker/
 │   │   └── AppHost.cs
 │   ├── ElternAnker.ServiceDefaults/  ← Shared Observability / Health / Service-Discovery
 │   │   └── Extensions.cs
+│   ├── ElternAnker.Infrastructure/   ← Domain Models, Abstractions & Stubs (VectorStore, StateMachine, Storage)
+│   │   ├── Domain/
+│   │   ├── Abstractions/
+│   │   ├── Rag/
+│   │   ├── StateMachine/
+│   │   ├── Storage/
+│   │   ├── VectorStore/
+│   │   └── Extensions/
 │   └── ElternAnker.Api/
 │       ├── Features/
 │       │   ├── Health/
 │       │   │   └── HealthEndpoint.cs
-│       │   └── Ping/
-│       │       └── PingEndpoint.cs
+│       │   ├── Ping/
+│       │   │   └── PingEndpoint.cs
+│       │   └── Sessions/
+│       │       ├── StartSession/
+│       │       ├── Chat/
+│       │       ├── Feedback/
+│       │       └── SessionsEndpoints.cs
 │       ├── Infrastructure/
 │       │   └── Extensions/
 │       │       └── ServiceCollectionExtensions.cs
@@ -90,8 +103,13 @@ ElternAnker/
 │       └── Features/
 │           ├── Health/
 │           │   └── HealthEndpointTests.cs
-│           └── Ping/
-│               └── PingEndpointTests.cs
+│           ├── Ping/
+│           │   └── PingEndpointTests.cs
+│           └── Sessions/
+│               ├── StartSessionEndpointTests.cs
+│               ├── ChatEndpointTests.cs
+│               ├── FeedbackEndpointTests.cs
+│               └── DialogStateMachineTests.cs
 ├── docs/
 │   └── adr/
 │       └── 0000-adr-template.md
